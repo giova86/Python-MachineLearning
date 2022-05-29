@@ -12,6 +12,8 @@ plt.rcParams["figure.figsize"] = (5,5)
 
 # import data
 df = pd.read_csv('./data/california_housing_train.csv')
+print(df.isnull().sum())
+
 df = df[df['median_house_value']<200000]
 
 # data preparation
@@ -47,6 +49,8 @@ rf_summary.columns = ['Model', 'MSE (Train)', 'R2 (Train)','MAE (Train)', 'MSE (
 plt.scatter(y_rf_predicion_test, y_test)
 plt.xlim([min(min(y_rf_predicion_test), min(y_test)), max(max(y_rf_predicion_test), max(y_test))])
 plt.ylim([min(min(y_rf_predicion_test), min(y_test)), max(max(y_rf_predicion_test), max(y_test))])
+plt.show()
+plt.hist(y_rf_predicion_test-y_test)
 plt.show()
 
 # models 2
