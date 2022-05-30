@@ -20,9 +20,6 @@ df = df[df['median_house_value']<200000]
 y = df['median_house_value']
 X = df.drop('median_house_value', axis=1)
 
-# for i in df.columns:
-#     plt.scatter(X[i], y)
-#     plt.show()
 
 scaler = StandardScaler()
 X = scaler.fit_transform(X)
